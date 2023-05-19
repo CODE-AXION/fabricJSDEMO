@@ -3,13 +3,14 @@ import { uploadImage } from './fileUpload.js';
 import { addText, addNewText, removeText, changeActiveTextColor,  } from './TextModule.js';
 import { removeGuidelines , addGuidelines, setupGuidelines} from './GuidelinesModule.js';
 
-
+let actualCanvasWidth = 559;
+let actualCanvasHeight = 794;
 //initiate fabric canvas
-const newCanvas = initCanvas('canvas',559,794)
+const newCanvas = initCanvas('canvas',actualCanvasWidth,actualCanvasHeight)
 
 console.log(newCanvas.width)
 //set the canvas background
-setBackgroundImage('./indian-paisley-&-birds.jpg',newCanvas)
+setBackgroundImage('/templates/indian-paisley-&-birds.jpg',newCanvas)
 
 //render the canvas
 newCanvas.renderAll();
@@ -104,7 +105,7 @@ deleteBtn.addEventListener('click', () => removeText(newCanvas) )
 document.getElementById('file-upload').addEventListener('change',(e) => uploadImage(e,newCanvas,'objectImage'));
 //----------
 
-document.getElementById('background-file-upload').addEventListener('change',(e) => uploadImage(e,newCanvas,'backgroundImage'));
+//document.getElementById('background-file-upload').addEventListener('change',(e) => uploadImage(e,newCanvas,'backgroundImage'));
 
 
 
@@ -190,6 +191,22 @@ newCanvas.on('selection:cleared', function() {
 });
 
 
+
+document.querySelectorAll('.add-sticker').forEach(function(element) {
+
+    element.addEventListener('click', function() {
+        var stickerUrl = this.getAttribute('data-sticker-url');
+
+        fabric.Image.fromURL(stickerUrl, (img) => {
+            img.scale(0.5); // scale the image down if needed
+
+            newCanvas.add(img);
+            newCanvas.setActiveObject(img);
+        });
+        newCanvas.renderAll();
+    })
+
+})
 
 document.querySelectorAll('.alignment').forEach(function(element) {
     element.addEventListener('click', function() {
@@ -768,13 +785,16 @@ let reset_zoom = document.getElementById('reset_zoom');
 
 reset_zoom.addEventListener('click', function() {
 
-    newCanvas.setZoom(1);
+    let zoomValue = 1;
+
+    newCanvas.setWidth(actualCanvasWidth);
+    newCanvas.setHeight(actualCanvasHeight);
 
     // Center the canvas
-    newCanvas.setViewportTransform([1, 0, 0, 1, 0, 0]);
+    newCanvas.setViewportTransform([zoomValue, 0, 0, zoomValue, 0, 0]);
 
-    // Render the canvas
     newCanvas.renderAll();
+    newCanvas.calcOffset();
 })
 
 
@@ -1603,7 +1623,33 @@ newCanvas.on('object:moving', function (e) {
 
 
 
+function createLayer(){
+    const layerDiv = document.createElement('div');
+    layerDiv.classList.add(['layer flex items-center gap-3']);
+    layerDiv.innerHTML = `
+        <h1>Layer 1</h1>
+        <button class="eye-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+            </svg>
+        </button>
 
+        <button class="lock-icon">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+            <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z"/>
+        </svg>
+
+        </button>
+    `;
+
+    // Append layer to the DOM
+    const layersContainer = document.getElementById('layers-container');
+    layersContainer.appendChild(layerDiv);
+}
+
+createLayer();
 
 
 

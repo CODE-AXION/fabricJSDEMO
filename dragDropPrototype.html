@@ -34,10 +34,11 @@
 
 </head>
 <body>
+   
     <div class="w-full">
         <div class="flex items-center bg-pink-100 justify-around">
             <div>
-                <h1 class="text-xl"> InviteMeCard </h1>
+                <h1 class="text-3xl font-['Parisienne']"> InviteMeCard </h1>
             </div>
 
             <div class="flex items-center gap-8">
@@ -52,16 +53,16 @@
                 </div>
 
 
-                <div  class="flex items-center gap-2 cursor-pointer">
+                {{-- <div  class="flex items-center gap-2 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="fill-pink-800 hover:fill-pink-400 w-5 h-5 bi bi-box2-heart-fill" viewBox="0 0 16 16">
                         <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4h-8.5ZM8.5 4h6l.5.667V5H1v-.333L1.5 4h6V1h1v3ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
                     </svg>
 
                     <h1 class="text-pink-800 hover:text-pink-400"> Add Sticker </h1>
 
-                </div>
+                </div> --}}
 
-                <div class="flex items-center gap-2 cursor-pointer">
+                {{-- <div class="flex items-center gap-2 cursor-pointer">
                     <label for="background-file-upload" class="block flex items-center gap-2 cursor-pointer" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-fill fill-pink-800 hover:fill-pink-400 w-5 h-5 " viewBox="0 0 16 16">
                             <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/>
@@ -70,7 +71,7 @@
                     </label>
                     <input type="file" id="background-file-upload" hidden>
 
-                </div>
+                </div> --}}
 
 
                 <div class="flex items-center gap-2 cursor-pointer">
@@ -132,12 +133,70 @@
     </div>
     <div class="w-full flex relative">
 
+        <div class="absolute left-0 " style="width: 22%">
+            <div class="p-4 text-center border shadow-lg">
+
+                <div class="mt-8 justify-center flex items-center gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="fill-pink-800 hover:fill-pink-400 w-7 h-7 bi bi-box2-heart-fill" viewBox="0 0 16 16">
+                        <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4h-8.5ZM8.5 4h6l.5.667V5H1v-.333L1.5 4h6V1h1v3ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                    </svg>
+
+                    <h1 class="text-3xl  font-['Arizonia'] text-center"> Stickers </h1>
+                </div>
+
+                <div class="flex items-center justify-between flex-wrap gap-2 mt-4" >
+
+                    <div class="flex flex-col border border-slate-300 rounded-md p-4 justify-center items-center w-36 gap-2">
+                        <img src="{{asset('stickers/pngegg.png')}}" class="w-full" alt="">
+                        <div>Heart Sticker</div>
+                        <div data-sticker-url="stickers/pngegg.png" class="add-sticker w-full px-0.5 bg-pink-400 text-white rounded-md">Add</div>
+                    </div>
+
+
+                    <div class="flex flex-col border border-slate-300 rounded-md p-4 justify-center items-center w-36 gap-2">
+                        <img src="{{asset('stickers/happy-wedding.png')}}" class="w-full" alt="">
+                        <div>Wedding Sticker</div>
+                        <div data-sticker-url="stickers/happy-wedding.png" class="add-sticker w-full px-0.5 bg-pink-400 text-white rounded-md">Add</div>
+
+                    </div>
+
+                    <div class="flex flex-col border border-slate-300 rounded-md p-4 justify-center items-center w-36 gap-2">
+                        <img src="{{asset('stickers/balloons.png')}}" class="w-full" alt="">
+                        <div>Balloon Sticker</div>
+                        <div data-sticker-url="stickers/balloons.png" class="add-sticker w-full px-0.5 bg-pink-400 text-white rounded-md">Add</div>
+                    </div>
+
+                    <div class="flex flex-col border border-slate-300 rounded-md p-4 justify-center items-center w-36 gap-2">
+                        <img src="{{asset('stickers/wedding-invitation.png')}}" class="w-full" alt="">
+                        <div>Wedding Invitation Sticker</div>
+                        <div data-sticker-url="stickers/wedding-invitation.png" class="add-sticker w-full px-0.5 bg-pink-400 text-white rounded-md">Add</div>
+                    </div>
+
+                    <div class="flex flex-col border border-slate-300 rounded-md p-4 justify-center items-center w-36 gap-2">
+                        <img src="{{asset('stickers/wedding-ring.png')}}" class="w-full" alt="">
+                        <div>Wedding Ring Sticker</div>
+                        <div data-sticker-url="stickers/wedding-ring.png" class="add-sticker w-full px-0.5 bg-pink-400 text-white rounded-md">Add</div>
+                    </div>
+
+                    <div class="flex flex-col border border-slate-300 rounded-md p-4 justify-center items-center w-36 gap-2">
+                        <img src="{{asset('stickers/wedding.png')}}" class="w-full" alt="">
+                        <div>Wedding Sticker</div>
+                        <div data-sticker-url="stickers/wedding.png" class="add-sticker w-full px-0.5 bg-pink-400 text-white rounded-md">Add</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
         <div id="wrapper" class="container mx-auto mt-8">
             <canvas id="canvas">
 
             </canvas>
 
         </div>
+
+
 
         <div class="absolute right-0 w-2/12 ">
             <div class="p-4  shadow-lg ">
@@ -146,6 +205,7 @@
 
                     Align Text
                 </div>
+
 
 
                 <div class="flex items-center mt-2 justify-around">
@@ -201,6 +261,22 @@
                 </div>
 
 
+
+                <div>
+                    <h1 class="mt-4">Select Font Family </h1>
+                    <select class="w-full p-2 cursor-pointer rounded-md" id="fontSelect">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Bangers" > Bangers </option>
+                        <option value="Audiowide" > Audiowide </option>
+                        <option value="Sacramento" > Sacramento </option>
+                        <option value="Parisienne" > Parisienne </option>
+                        <option value="Arizonia" > Arizonia </option>
+                      </select>
+                </div>
+
+{{--
                 <div class="text-center text-lg mt-4">
 
                     Postions
@@ -319,7 +395,7 @@
                         <h1 class="text-xs text-center mt-2">Top</h1>
                     </div>
 
-                </div>
+                </div> --}}
 
 
                 <h1 class="text-center mt-6">Line Height</h1>
@@ -374,7 +450,7 @@
                 </div>
 
                 <h1 class="text-center mt-6">Font Style</h1>
-                <div class="flex items-center mt-4 gap-4">
+                <div class="flex justify-around items-center mt-4 gap-4">
 
                     <div>
                         <label >
@@ -411,12 +487,17 @@
                         <h1 class="text-xs text-center mt-2">Bold</h1>
                     </div>
 
-                    <div>
-                        <button id="reset_zoom">Reset Zoom</button>
-                    </div>
 
 
-                    <select id="gridSizeSelect">
+
+
+
+                </div>
+
+
+                <div>
+                    <h1 class="text-center text-lg my-4"> Set Grid</h1>
+                    <select id="gridSizeSelect" class="p-2 w-full cursor-pointer">
                         <option value="" selected>No Grid</option>
                         <option value="10">10</option>
                         <option value="20">20</option>
@@ -424,27 +505,19 @@
                         <option value="40">40</option>
                       </select>
 
-
-
                 </div>
 
-                <div>
-                    <h1 class="mt-4">Select Font Family </h1>
-                    <select class="w-full p-2 rounded-md" id="fontSelect">
-                        <option value="Arial">Arial</option>
-                        <option value="Times New Roman">Times New Roman</option>
-                        <option value="Verdana">Verdana</option>
-                        <option value="Bangers" > Bangers </option>
-                        <option value="Audiowide" > Audiowide </option>
-                        <option value="Sacramento" > Sacramento </option>
-                        <option value="Parisienne" > Parisienne </option>
-                        <option value="Arizonia" > Arizonia </option>
-                      </select>
+                <div class="w-full flex items-center justify-center my-2">
+                    <button id="reset_zoom" class="border border-blue-400 rounded px-2 w-full  ">Reset Zoom</button>
                 </div>
+
+                <div class="w-full" id="layers-container"></div>
+
 
             </div>
         </div>
     </div>
+    
     <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
 
     <script type="module" src="./DragDrop/main.js"></script>
